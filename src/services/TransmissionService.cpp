@@ -202,6 +202,8 @@ bool TransmissionService::Init(const Params& p)
 
         (void)b.udp.SetReuseAddr(true);
         (void)b.udp.SetNonBlocking(true);
+        (void)m_TxUdp.SetBroadcast(true);
+
         if (m_Params.dual_stack) (void)b.udp.SetIPv6Only(false);
 
         e = b.udp.Bind(bind);
